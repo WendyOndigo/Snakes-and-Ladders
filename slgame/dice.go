@@ -13,7 +13,7 @@ func (dice *Dice) Roll() int {
 	return rolledFace
 }
 
-func NewDice(nums ...string) Dice {
+func NewDice(nums []string) Dice {
 	var newFaces []int
 
 	for _, strFace := range nums {
