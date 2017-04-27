@@ -2,18 +2,18 @@ package slgame
 
 import "strconv"
 
-type Dice struct {
+type SLDice struct {
 	Position int
 	Faces    []int
 }
 
-func (dice *Dice) Roll() int {
+func (dice *SLDice) Roll() int {
 	rolledFace := dice.Faces[dice.Position]
 	dice.Position = (dice.Position + 1) % len(dice.Faces)
 	return rolledFace
 }
 
-func NewDice(nums []string) Dice {
+func NewDice(nums []string) SLDice {
 	var newFaces []int
 
 	for _, strFace := range nums {
@@ -25,7 +25,7 @@ func NewDice(nums []string) Dice {
 
 	}
 
-	return Dice{
+	return SLDice{
 		Position: 0,
 		Faces:    newFaces,
 	}
