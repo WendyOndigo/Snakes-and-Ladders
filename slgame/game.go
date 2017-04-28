@@ -1,7 +1,6 @@
 package slgame
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -31,7 +30,7 @@ func check(err error) {
 func ReadFrom(input string) Game {
 	game := NewGame()
 	for _, command := range strings.Split(input, "\n") {
-		fmt.Println("Command:", command)
+		//fmt.Println("Command:", command)
 		doCommand(command, &game)
 	}
 	return game
@@ -174,7 +173,7 @@ func teleportPlayer(cellLoc int, playerName string, game *Game) {
 		if player.HasPowerup("e") {
 			player.UsePowerup("e")
 			game.Players[playerName] = player
-			difference += cell.TransportTo()
+			difference += difference
 		}
 		if finalLoc := difference + cellLoc; finalLoc >= game.MaxCell {
 			game.movePlayer(playerName, strconv.Itoa(game.MaxCell))
@@ -199,7 +198,7 @@ func (game *Game) movePlayer(playerName string, newCellLoc string) {
 	index, err := strconv.Atoi(newCellLoc)
 	check(err)
 	destCell := game.Board[index-1]
-	fmt.Printf("moving player %v to %v\n", playerName, newCellLoc)
+	//fmt.Printf("moving player %v to %v\n", playerName, newCellLoc)
 	updateCellPlayer(newCellLoc, playerName, game)
 
 	if newCellLoc != strconv.Itoa(game.MaxCell) {
@@ -217,7 +216,7 @@ func (game Game) AllPlayerNames() []string {
 	for i := 0; i < len(game.Players); i++ {
 		names = append(names, string(65+i))
 	}
-	fmt.Println("names:", names)
+	//fmt.Println("names:", names)
 	return names
 }
 
