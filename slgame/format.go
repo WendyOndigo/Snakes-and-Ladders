@@ -39,7 +39,7 @@ func make_row(game Game, rowNumber int, startLabel int, outputString *string) {
 // Get the cell number for a given row in order from left to right
 func getRowLabel(totalCol int, rowNumber int, startNumber int) []int {
 	labels := []int{}
-	rightToLeft := rowNumber%2 == 0
+	rightToLeft := rowNumber%2 == 1
 	for i := 0; i < totalCol; i++ {
 		if rightToLeft {
 			labels = append(labels, startNumber-i)
@@ -93,10 +93,12 @@ func printPowerup(cell Cell, outputString *string) {
 
 // Print the ladder or snake if one exists for the cell
 func printTranslate(cell Cell, outputString *string) {
-	if cell.TransportTo() == 0 {
-		*outputString += " "
+	if cell.IsLadder() {
+		*outputString += "L"
+	} else if cell.IsSnake() {
+		*outputString += "S"
 	} else {
-		*outputString += strconv.Itoa(cell.TransportTo())
+		*outputString += " "
 	}
 }
 
