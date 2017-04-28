@@ -21,8 +21,8 @@ func printHorizontalEdge(width int, outputString *string) {
 // Print all rows of the Board
 func printRows(game Game, outputString *string, rowNumber int, label int) {
 	currLabel := label
-	for i := 1; i <= rowNumber; i++ {
-		make_row(game, rowNumber, currLabel, outputString)
+	for i := rowNumber; i >= 1; i-- {
+		make_row(game, i, currLabel, outputString)
 		currLabel -= game.BoardWidth
 	}
 }
@@ -39,7 +39,7 @@ func make_row(game Game, rowNumber int, startLabel int, outputString *string) {
 // Get the cell number for a given row in order from left to right
 func getRowLabel(totalCol int, rowNumber int, startNumber int) []int {
 	labels := []int{}
-	rightToLeft := rowNumber%2 == 1
+	rightToLeft := rowNumber%2 == 0
 	for i := 0; i < totalCol; i++ {
 		if rightToLeft {
 			labels = append(labels, startNumber-i)
