@@ -42,7 +42,6 @@ func runGameUsingJsonIO(infile string, outfile string) {
 	check(parseError)
 
 	author := jsonData["author"].(string)
-	fmt.Println("author:", author)
 
 	jsonOutData := make(map[string]interface{})
 	jsonOutData["requestedBy"] = author
@@ -77,15 +76,12 @@ func runGameUsingJsonIn(infile string) {
 	parseError := json.Unmarshal(jsonRawData, &jsonData)
 	check(parseError)
 
-	author := jsonData["author"].(string)
-	fmt.Println("author:", author)
-
 	for _, i := range jsonData["configurations"].([]interface{}) {
 		obj := i.(map[string]interface{})
-		title := obj["title"].(string)
+		//title := obj["title"].(string)
 		config := obj["commands"].(string)
-		fmt.Println("title:", title)
-		fmt.Println("config:", config)
+		//fmt.Println("title:", title)
+		//fmt.Println("config:", config)
 		fmt.Println(slgame.Print(slgame.ReadFrom(config)))
 	}
 }
@@ -98,10 +94,10 @@ func main() {
 	jsonOutFile := ""
 	pwd, pathErr := os.Getwd()
 	check(pathErr)
-
-	fmt.Println(os.Args)
-	fmt.Println(pwd + "/")
-
+	/*
+		fmt.Println(os.Args)
+		fmt.Println(pwd + "/")
+	*/
 	for _, arg := range os.Args {
 		if strings.Contains(arg, "-json-in=") {
 			jsonIn = true
@@ -112,11 +108,11 @@ func main() {
 		}
 	}
 
-	fmt.Println("jsonIn:", jsonIn)
+	/*fmt.Println("jsonIn:", jsonIn)
 	fmt.Println("jsonInFile:", jsonInFile)
 	fmt.Println("jsonOut:", jsonOut)
 	fmt.Println("jsonOutFile:", jsonOutFile)
-
+	*/
 	if jsonIn && jsonOut {
 		runGameUsingJsonIO(jsonInFile, jsonOutFile)
 	} else if !jsonIn && jsonOut {
