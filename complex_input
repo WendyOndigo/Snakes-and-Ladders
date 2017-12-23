@@ -1,0 +1,16 @@
+board 4 4
+players 3
+dice 3 2 1
+powerup escalator 4
+powerup double 6
+snake 12 1
+ladder 8 10
+turns 1
+powerup antivenom 1
+snake 10 2
+turns 3
+powerup antivenom 9
+powerup double 11
+turns 4
+powerup double 14
+turns 2
