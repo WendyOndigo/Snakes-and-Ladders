@@ -1,4 +1,4 @@
-package internal
+package components
 
 import (
 	"strconv"

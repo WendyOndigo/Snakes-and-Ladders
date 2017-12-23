@@ -1,4 +1,4 @@
-package internal
+package components
 
 import "github.com/deckarep/golang-set"
 
