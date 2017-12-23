@@ -1,4 +1,4 @@
-package slgame
+package internal
 
 import "github.com/deckarep/golang-set"
 

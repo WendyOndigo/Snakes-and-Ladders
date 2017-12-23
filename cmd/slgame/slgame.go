@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Snakes-and-Ladders/slgame"
+	slgame "github.com/b6luong/Snakes-and-Ladders/internal"
 	"bufio"
 	"encoding/json"
 	"fmt"
